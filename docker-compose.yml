@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./kezas-apartments-api/tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+  backend:
+    build:
+      context: ./kezas-apartments-api
+    command: bash -c "rm -f ./kezas-apartments-api/tmp/pids/server.pid && bundle exec rails s -p 3030 -b '0.0.0.0'"
+    volumes:
+      - ./kezas-apartments-api:/kezas
+    ports:
+      - "3030:3030"
+    depends_on:
+      - db
+  frontend:
+    build:
+      context: ./kezas-apartments-frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /kezas/node_modules
+      - ./kezas-apartments-frontend:/kezas
+    # links:
+    #   - "backend"
+  frontend_tests:
+    build:
+      context: ./kezas-apartments-frontend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /kezas/node_modules
+      - ./kezas-apartments-frontend:/kezas
+    command: ["yarn", "test"]
