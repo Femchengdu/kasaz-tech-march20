@@ -26,8 +26,8 @@ services:
     volumes:
       - /kezas/node_modules
       - ./kezas-apartments-frontend:/kezas
-    # links:
-    #   - "backend"
+    depends_on:
+      - "backend"
   frontend_tests:
     build:
       context: ./kezas-apartments-frontend
