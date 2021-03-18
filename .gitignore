@@ -26,11 +26,12 @@ yarn-error.log*
 
 
 /.bundle
-
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+tmp/*
+kezas-apartments-api/tmp/db
+kezas-apartments-api/log/*
+kezas-apartments-api/tmp/*
+!kezas-apartments-api/log/.keep
+!kezas-apartments-api/tmp/.keep
 
 /tmp/pids/*
 !/tmp/pids/
