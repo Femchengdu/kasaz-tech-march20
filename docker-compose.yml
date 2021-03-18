@@ -27,7 +27,7 @@ services:
       - /kezas/node_modules
       - ./kezas-apartments-frontend:/kezas
     depends_on:
-      - "backend"
+      - backend
   frontend_tests:
     build:
       context: ./kezas-apartments-frontend
