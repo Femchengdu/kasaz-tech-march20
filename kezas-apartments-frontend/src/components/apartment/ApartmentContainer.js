@@ -3,7 +3,11 @@ import { ApartmentContext } from "../../context/appContext";
 import ApartmentList from "./ApartmentList";
 
 const ApartmentContainer = () => {
-  const { sortedApartments } = useContext(ApartmentContext);
+  const { sortedApartments, loading } = useContext(ApartmentContext);
+
+  if (loading) {
+    return <div>Loading.....</div>;
+  }
 
   return <ApartmentList apartments={sortedApartments} />;
 };
