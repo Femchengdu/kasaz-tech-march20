@@ -157,3 +157,18 @@ h6 {
   }
 }
 /*end of Navbar*/
+/* Hero */
+.defaultHero,
+.roomsHero {
+  min-height: calc(100vh - 66px);
+  background: url("https://picsum.photos/id/122/1200/1300") center/cover
+    no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.roomsHero {
+  /* background-image: url("./images/defaultBcg.jpeg"); */
+  min-height: 60vh;
+}
+/* End of Hero */
