@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchApartments } from "../utils/fetchApartments";
 
-const useGetApartments = () => {
+const useGetApartments = (initSortedApartmentCB) => {
   const [apartments, setApartments] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -13,6 +13,7 @@ const useGetApartments = () => {
         if (data) {
           setApartments(data);
           setLoading(false);
+          initSortedApartmentCB(data);
         }
       } catch (err) {
         console.log("Fetch error :", err.message);
@@ -20,7 +21,7 @@ const useGetApartments = () => {
       }
     })();
   }, []);
-  return [apartments, loading];
+  return [apartments, loading, error];
 };
 
 export default useGetApartments;
