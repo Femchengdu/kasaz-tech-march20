@@ -3,7 +3,7 @@ Apartment.destroy_all
 
 
 40.times do |index|
-    pic_id = Faker::Number.between(from: 300, to: 800)
+    pic_id = Faker::Number.between(from: 300, to: 600)
     pic_url = "https://picsum.photos/id/" + pic_id.to_s + "/200/300"
     suffix = Faker::Lorem.sentence(word_count: 3)
     title_city = Faker::Nation.capital_city 
