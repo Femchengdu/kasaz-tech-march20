@@ -1,5 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import { ApartmentProvider } from "./context/appContext";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <ApartmentProvider>
+    <App />
+  </ApartmentProvider>,
+  document.getElementById("root")
+);
