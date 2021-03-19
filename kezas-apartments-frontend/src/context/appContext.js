@@ -3,15 +3,14 @@ import useGetApartments from "../hooks/useGetApartments";
 import useSortedApartments from "../hooks/useSortedApartments";
 const ApartmentContext = createContext();
 const ApartmentProvider = ({ children }) => {
-  const [apartments, loading] = useGetApartments();
   const [sortedApartments, setSortedApartments] = useSortedApartments([]);
+  const [apartments, loading] = useGetApartments(setSortedApartments);
 
   return (
     <ApartmentContext.Provider
       value={{
         apartments,
-        sortedApartments:
-          sortedApartments.length > 0 ? sortedApartments : apartments,
+        sortedApartments,
         loading,
       }}
     >
