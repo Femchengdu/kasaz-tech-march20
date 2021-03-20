@@ -1,7 +1,14 @@
 import React from "react";
-
+import "./App.css";
+import FilterMenuNav from "./components/filter/FilterMenuNav";
+import Apartments from "./components/apartment/Apartments";
 const App = () => {
-  return <h1>Kezas Apartment App</h1>;
+  return (
+    <div>
+      <FilterMenuNav />
+      <Apartments />
+    </div>
+  );
 };
 
 export default App;
