@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { ApartmentContext } from "../../context/appContext";
 import getUnique from "../../utils/uniqueValues";
+import { FaWindowClose } from "react-icons/fa";
+
 const ApartmentFilter = () => {
   const {
     handleChange,
@@ -12,6 +14,7 @@ const ApartmentFilter = () => {
     numberOfRooms,
     numberOfBath,
     apartments,
+    setIsOpen,
   } = useContext(ApartmentContext);
   const rmNos = getUnique(apartments, "bedroom");
   rmNos.push(0);
@@ -38,6 +41,12 @@ const ApartmentFilter = () => {
 
   return (
     <section className="filter-container">
+      <div className="filter-btn-container">
+        {" "}
+        <span onClick={() => setIsOpen(false)} className="btn-close">
+          <FaWindowClose style={{ color: "black" }} className="nav-icon" />
+        </span>
+      </div>
       <form className="filter-form">
         {/*select rooms*/}
         <div className="form-group">
