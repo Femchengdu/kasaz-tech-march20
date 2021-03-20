@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, useCallback } from "react";
 import useGetApartments from "../hooks/useGetApartments";
 import useSortedApartments from "../hooks/useSortedApartments";
+import useDisplayMenu from "../hooks/useDisplayMenu";
 const ApartmentContext = createContext();
 const ApartmentProvider = ({ children }) => {
   const [sortedApartments, setSortedApartments] = useSortedApartments([]);
@@ -12,6 +13,7 @@ const ApartmentProvider = ({ children }) => {
   const [maxPrice, setMaxPrice] = useState(0);
   const [minSqm, setMinSqm] = useState(0);
   const [maxSqm, setMaxSqm] = useState(0);
+  const [isOpen, setIsOpen] = useDisplayMenu();
   console.log("laod");
   // Filter here
   const filterApartments = useCallback(() => {
@@ -91,6 +93,8 @@ const ApartmentProvider = ({ children }) => {
         price,
         maxSqm,
         minSqm,
+        isOpen,
+        setIsOpen,
       }}
     >
       {children}
