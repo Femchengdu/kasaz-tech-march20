@@ -12,8 +12,8 @@ Apartment.destroy_all
         title: city_title,
         price:  Faker::Number.number(digits: 6),
         sqm:  Faker::Number.number(digits: 3),
-        bedroom: Faker::Number.between(from: 2, to: 5),
-        bathroom: Faker::Number.between(from: 1, to: 3),
+        bedroom: Faker::Number.between(from: 1, to: 5),
+        bathroom: Faker::Number.between(from: 1, to: 4),
         picture: pic_url
     )
 end
