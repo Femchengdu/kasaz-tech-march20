@@ -67,6 +67,20 @@ h6 {
   text-transform: uppercase;
   cursor: pointer;
 }
+.btn-close {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+  text-decoration: none;
+  letter-spacing: var(--mainSpacing);
+  color: var(--primaryColor);
+  background: white;
+  padding: 0.4rem 1.5rem;
+  border: 3px solid var(--primaryColor);
+  transition: var(--mainTransition);
+  text-transform: uppercase;
+  cursor: pointer;
+}
 .btn-primary:hover {
   background: transparent;
   color: var(--primaryColor);
@@ -138,13 +152,9 @@ h6 {
   height: 100px;
 }
 @media screen and (min-width: 768px) {
-  .nav-btn {
-    display: none;
-  }
   .nav-center {
     max-width: 1170px;
     margin: 0 auto;
-    display: flex;
   }
   .nav-links {
     height: auto;
@@ -157,6 +167,58 @@ h6 {
   }
 }
 /*end of Navbar*/
+/*Side nav*/
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: var(--offWhite);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.mySideNavOpen {
+  width: 250px;
+}
+.mySideNavClose {
+  width: 0px;
+}
+/*End side nav*/
 /* Hero */
 .defaultHero,
 .roomsHero {
@@ -305,6 +367,9 @@ h6 {
 .filter-container {
   padding: 5rem 0;
 }
+.filter-btn-container {
+  text-align: right;
+}
 .filter-form {
   width: 60vw;
   margin: 0 auto;
@@ -341,15 +406,21 @@ h6 {
   font-size: 0.8rem;
   margin-left: 0.5rem;
 }
-@media screen and (min-width: 776px) {
+
+/* @media screen and (min-width: 776px) {
   .filter-form {
-    width: 70vw;
+    width: 250px;
+  }
+} */
+@media screen and (min-width: 500px) {
+  .filter-form {
+    width: 230px;
   }
 }
-@media screen and (min-width: 992px) {
+/* @media screen and (min-width: 992px) {
   .filter-form {
-    width: 95vw;
-    max-width: 1170px;
+    width: 250px;
+
   }
-}
+} */
 /* end of rooms fitler*/
