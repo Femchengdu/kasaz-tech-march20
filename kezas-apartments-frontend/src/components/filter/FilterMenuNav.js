@@ -1,24 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BsFilter } from "react-icons/bs";
+import { ApartmentContext } from "../../context/appContext";
+import ApartmentFilter from "./ApartmentFilter";
 
 const FilterMenuNav = () => {
-  // TODO: Add the filter here
-  const isOpen = false;
+  const { isOpen, setIsOpen } = useContext(ApartmentContext);
+
   return (
     <nav className="navbar">
       <div className="nav-center">
         <div className="nav-header">
-          <button onClick={() => {}} type="button" className="nav-btn">
+          <button
+            onClick={() => setIsOpen(true)}
+            type="button"
+            className="nav-btn"
+          >
             <BsFilter className="nav-icon" />
           </button>
           <a>Kasaz</a>
         </div>
-        {/**Your search list can go here */}
-        <ul className={isOpen ? "nav-links show-nav" : "nav-links"}>
-          <li>
-            <div>Filter Component?</div>
-          </li>
-        </ul>
+        <div
+          id="mySidenav"
+          className={
+            isOpen ? "sidenav mySideNavOpen" : "sidenav mySideNavClose"
+          }
+        >
+          <ApartmentFilter />
+        </div>
       </div>
     </nav>
   );
